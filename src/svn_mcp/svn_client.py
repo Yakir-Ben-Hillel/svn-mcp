@@ -15,3 +15,8 @@ def checkout(url: str, dest: str) -> subprocess.CompletedProcess:
 def commit(message: str) -> subprocess.CompletedProcess:
     """Commit local changes with a commit message."""
     return _run_command(["svn", "commit", "-m", message])
+
+
+def update(path: str = ".") -> subprocess.CompletedProcess:
+    """Update an existing SVN working copy."""
+    return _run_command(["svn", "update", path])

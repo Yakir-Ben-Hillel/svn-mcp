@@ -22,6 +22,13 @@ class TestSVNClient(unittest.TestCase):
             'svn', 'commit', '-m', 'msg'
         ], check=True, capture_output=True, text=True)
 
+    @mock.patch('subprocess.run')
+    def test_update(self, mock_run):
+        svn_client.update('path')
+        mock_run.assert_called_with([
+            'svn', 'update', 'path'
+        ], check=True, capture_output=True, text=True)
+
 
 if __name__ == '__main__':
     unittest.main()
