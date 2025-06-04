@@ -21,6 +21,8 @@ repository and commit changes:
 python -m svn_mcp checkout http://example.com/repo path/to/dest
 # make changes
 python -m svn_mcp commit "My commit message"
+# later update the working copy
+python -m svn_mcp update path/to/dest
 ```
 
 ## Development

@@ -13,11 +13,16 @@ def main(argv=None):
     commit_parser = subparsers.add_parser("commit", help="Commit changes")
     commit_parser.add_argument("message")
 
+    update_parser = subparsers.add_parser("update", help="Update working copy")
+    update_parser.add_argument("path", nargs="?", default=".")
+
     args = parser.parse_args(argv)
 
     if args.command == "checkout":
         svn_client.checkout(args.url, args.dest)
     elif args.command == "commit":
         svn_client.commit(args.message)
+    elif args.command == "update":
+        svn_client.update(args.path)
     else:
         parser.print_help()
